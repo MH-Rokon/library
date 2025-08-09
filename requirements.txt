@@ -1,7 +1,9 @@
 asgiref
+dj-database-url
 Django
 djangorestframework
 djangorestframework_simplejwt
+psycopg2-binary
 PyJWT
 python-decouple
 sqlparse

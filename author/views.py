@@ -27,7 +27,7 @@ class RegistrationAPIView(APIView):
 
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            activation_link = f"http://127.0.0.1:8000/api/activate/{uid}/{token}/"
+            activation_link = f"https://library-uniy.onrender.com/api/activate/{uid}/{token}/"
 
             subject = "Activate Your Account"
             message = f"Welcome! Activate your account by clicking this link:\n\n{activation_link}"
@@ -140,7 +140,7 @@ class PasswordResetRequestAPIView(APIView):
 
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            reset_link = f"http://127.0.0.1:8000/api/reset-password-confirm/{uid}/{token}/"
+            reset_link = f"https://library-uniy.onrender.com/api/reset-password-confirm/{uid}/{token}/"
 
             subject = "Password Reset Request"
             message = (
