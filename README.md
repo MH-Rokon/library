@@ -1,9 +1,10 @@
-<!-- Library Management System -->
-This project is a web-based Library Management System built to handle borrowing and returning books. It includes features for managing users, books, authors, and categories.
+Library Management System 
+This project is a web-based Library Management System built to handle borrowing and returning books. 
+It includes features for managing users, books, authors, and categories.
 
 
 
-<!--1------------------- Setup Instructions  -->
+1------------------- Setup Instructions  -->
 To get the project running on your local machine, follow these steps:
 
 Clone the repository from GitHub and navigate into the project directory:
@@ -14,7 +15,7 @@ cd library
 
 
 
-<!--2 c-------------reate and activate a virtual environment to manage project dependencies: -->
+2 -------------reate and activate a virtual environment to manage project dependencies: 
 python3 -m venv venv
 source venv/bin/activate
 Install the required dependencies using pip:
@@ -23,7 +24,7 @@ Install the required dependencies using pip:
 
 
 
-<!-- 3--------------get the all requimended packeage  -->
+ 3--------------get the all requimended packeage  -->
 pip install -r requirements.txt
 
 
@@ -31,7 +32,7 @@ pip install -r requirements.txt
 
 
 
-<!-- 4-------------setup for the env file data -->
+4-------------setup for the env file data -->
 Configure environment variables. Create a file named .env in the project root and add your sensitive data, such as a secret key, database connection details, and email credentials for future features:
 Ini, TOML
 SECRET_KEY=your_secret_key
@@ -46,7 +47,7 @@ EMAIL_HOST_PASSWORD=your_email_password
 
 
 
-<!--5-------------- Apply database migrations to set up the necessary database tables: -->
+5-------------- Apply database migrations to set up the necessary database tables: -->
 python manage.py migrate
 
 
@@ -54,7 +55,7 @@ python manage.py migrate
 
 
 
-<!--6 --------------Create a superuser to access the administrative panel:
+6 --------------Create a superuser to access the administrative panel:
  -->
 python manage.py createsuperuser
 
@@ -64,7 +65,7 @@ python manage.py createsuperuser
 
 
 
-<!--7--------------- Run the development server to see the application in action: -->
+7--------------- Run the development server to see the application in action: -->
 python manage.py runserver
 
 
@@ -79,10 +80,11 @@ python manage.py runserver
 
 
 
-<!-- How Borrowing and Return Logic Works  -->
+ How Borrowing and Return Logic Works  -->
 This section details the core logic for managing book transactions.
 
-<!-- Borrowing Books: -->
+ 
+ Borrowing Books: -->
  A user can borrow a book only if they have fewer than 3 active borrowings and the book has at least one available copy. When a borrow is created:
 
 The available_copies count of the book is atomically decreased by 1.
@@ -90,7 +92,8 @@ The available_copies count of the book is atomically decreased by 1.
 The borrow_date is set to the current timestamp.
 
 The due_date is automatically set to 14 days after the borrow_date.
-<!-- 
+
+ 
 Returning Books:  -->
 Users can return books at any time. When a book is returned:
 
@@ -108,7 +111,7 @@ If the book is returned after the due_date, penalty points are calculated.
 
 
 
-<!-- How Penalty Points Are Calculated  -->
+ How Penalty Points Are Calculated  -->
 Penalty points are awarded for late returns to track a user's borrowing behavior.
 
 Calculation: Penalty points are calculated as 1 point per day late.
@@ -122,7 +125,7 @@ Purpose: These points accumulate on the user's profile and can be used to restri
 
 
 
-<!-- Assumptions and Known Limitations  -->
+ Assumptions and Known Limitations  -->
 The current system operates under the following constraints:
 
 The borrowing limit is strictly 3 active books per user; extensions and renewals are not supported.
