@@ -1,0 +1,7 @@
+asgiref
+Django
+djangorestframework
+djangorestframework_simplejwt
+PyJWT
+python-decouple
+sqlparse
